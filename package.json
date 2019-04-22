@@ -1,0 +1,36 @@
+{
+  "name": "thats",
+  "version": "0.0.1",
+  "description": "The most ambitious and smallest validation package of the World.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode production --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Marhc/thats.git"
+  },
+  "keywords": [
+    "validation",
+    "validate",
+    "util",
+    "utilities",
+    "duck-typing",
+    "type",
+    "type-checking"
+  ],
+  "author": "Marcio Coutinho",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Marhc/thats/issues"
+  },
+  "homepage": "https://github.com/Marhc/thats#readme",
+  "devDependencies": {
+    "benchmark": "^2.1.4",
+    "jest": "^24.7.1",
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.1",
+    "webpack-glob-entries": "^1.0.1"
+  }
+}
