@@ -1,1 +1,1 @@
-module.exports = obj => typeof obj == 'number' && Math.abs(obj) === Infinity
+module.exports = obj => typeof obj == 'number' && Math.abs(obj) == Infinity
