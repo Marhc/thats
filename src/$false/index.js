@@ -1,1 +1,1 @@
-module.exports = obj => !Boolean(obj)
+module.exports = obj => !obj
