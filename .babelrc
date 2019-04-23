@@ -1,13 +1,13 @@
 {
   "env": {
-    "development": {
+    "transpile": {
       "presets": ["@babel/preset-env"],
       "plugins": [
         "add-module-exports"
       ]
     },
-    "production": {
-      "presets": ["@babel/preset-env", ["minify", { builtIns: false }]],
+    "minify": {
+      "presets": [["minify", { builtIns: false }]],
       "plugins": [
         "add-module-exports"
       ]
