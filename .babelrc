@@ -1,7 +1,7 @@
 {
   "env": {
     "transpile": {
-      "presets": ["@babel/preset-env"],
+      "presets": [["@babel/preset-env",{"targets": "maintained node versions"}]],
       "plugins": [
         "add-module-exports"
       ]
