@@ -2,7 +2,10 @@
   "name": "thats",
   "version": "0.0.1",
   "description": "The most ambitious and smallest validation package of the World.",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "files": [
+    "/dist"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "transpile": "rimraf './dev/**/*' && ./node_modules/.bin/cross-env BABEL_ENV=transpile ./node_modules/.bin/babel src --out-dir dev",
