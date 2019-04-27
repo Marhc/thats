@@ -1,5 +1,4 @@
-// Parse URL from CLI arguments
-const moduleFolder = process.argv[2] || '../src';
+const moduleFolder = process.argv[2] || '../dist/main.min';
 
 const thats = require(moduleFolder)
 
@@ -35,13 +34,11 @@ const objSet = {
 
 for (let util in thats) {
 
-    if ( util.substr(0,1) != '$' ) {
         console.log( '\n' + util + '\n' )
 
         for (let obj in objSet) {
             console.log(obj + ': ' + spaces(19 - obj.length) + thats[util](objSet[obj]))
         }
-    }
 }
 
 

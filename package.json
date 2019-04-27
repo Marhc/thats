@@ -1,16 +1,17 @@
 {
   "name": "thats",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "The most ambitious and smallest validation package of the World.",
-  "main": "dist/index.js",
+  "main": "dist/main.min.js",
+  "browser": "dist/thats.min.js",
+  "module": "thats.min.mjs",
   "files": [
     "/dist"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "transpile": "rimraf './dev/**/*' && ./node_modules/.bin/cross-env BABEL_ENV=transpile ./node_modules/.bin/babel src --out-dir dev",
-    "minify": "rimraf './dist/**/*' && ./node_modules/.bin/cross-env BABEL_ENV=minify ./node_modules/.bin/babel dev --out-dir dist",
-    "build": "npm run transpile && npm run minify"
+    "make-index": "node src/makeIndex.js",
+    "build": "rimraf './dist/**/*' && npm run make-index && rollup -c"
   },
   "repository": {
     "type": "git",
@@ -34,6 +35,7 @@
   "devDependencies": {
     "@babel/cli": "^7.4.3",
     "@babel/core": "^7.4.3",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/polyfill": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
     "babel-plugin-add-module-exports": "^1.0.2",
@@ -41,7 +43,12 @@
     "benchmark": "^2.1.4",
     "cross-env": "^5.2.0",
     "jest": "^24.7.1",
-    "rimraf": "^2.6.3"
+    "rimraf": "^2.6.3",
+    "rollup": "^1.10.1",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-commonjs": "^9.3.4",
+    "rollup-plugin-node-resolve": "^4.2.3",
+    "rollup-plugin-terser": "^4.0.4"
   },
   "dependencies": {}
 }
