@@ -9,7 +9,7 @@
     "/dist"
   ],
   "scripts": {
-    "test": "node util/checkTypes.js",
+    "test": "npx jest",
     "make-index": "node src/makeIndex.js",
     "build": "rimraf './dist/**/*' && npm run make-index && rollup -c && npm test"
   },
