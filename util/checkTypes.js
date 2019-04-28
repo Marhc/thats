@@ -1,8 +1,15 @@
 const moduleFolder = process.argv[2] || '../dist/main.min';
 
+const { join, dirname } = require('path')
+const { writeFileSync } = require('fs')
+
+const truthTable = require(join(__dirname, 'truthTable.json'))
+
 const thats = require(moduleFolder)
 
 const spaces = num => (' ').repeat(num)
+
+const makeID = () => Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 
 const objSet = {
 	Null: null,
@@ -32,13 +39,36 @@ const objSet = {
     Promise_Object: new Promise ((resolve,reject) => resolve(true))
 }
 
+let utilResult, objResult, checkResult = {}
+
 for (let util in thats) {
 
         console.log( '\n' + util + '\n' )
+        utilResult = {}
 
         for (let obj in objSet) {
-            console.log(obj + ': ' + spaces(19 - obj.length) + thats[util](objSet[obj]))
+            objResult = thats[util](objSet[obj])
+            utilResult[obj] = objResult
+            console.log(obj + ': ' + spaces(19 - obj.length) + objResult)
         }
+
+        checkResult[util] = utilResult
+        
 }
 
+const resultPath = join(join(dirname(__dirname), 'checks'), ('result_'+makeID()+'.json'))
+
+const jsonResult = JSON.stringify(checkResult)
+
+writeFileSync(resultPath, jsonResult);
+
+const jsonTruthTable = JSON.stringify(truthTable) 
+
+if (jsonResult != jsonTruthTable) {
+    console.log("\nERROR: Results don't match with truth table.")
+    process.exit(1);
+} else {
+    console.log('\nBuild OK: Tests performed successfully.')
+}
+    
 
