@@ -2,33 +2,7 @@ var Benchmark = require('benchmark');
 
 var suite = new Benchmark.Suite;
 
-const objSet = {
-    btr: true,
-    bfl: false,
-    int: 4,
-    zer: 0,
-    mif: -Infinity,
-    pif: Infinity,
-    und: undefined,
-    str: 'hello',
-    dat: new Date(),
-    nan: 0/0,
-    emo: {},
-    obj: {one:1,two:2,three:3},
-    jso: '{"key":"value"}',
-    sym: Symbol(),
-    err: new Error(),
-    ema: [],
-    arr: [1,2,3],
-    nul: null,
-    pro: new Promise ((resolve,reject) => resolve(true)),
-    fun: function(){},
-    ems: '',
-    flt: 3.14,
-    reg: /hello/g,
-    map: new Map(),
-    set: new Set()
-};
+const objSet = require('../util/objSet')
 
 // add tests
 suite.add('parseFloat#Anonymous', function() {
