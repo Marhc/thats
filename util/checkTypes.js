@@ -1,7 +1,7 @@
 const moduleFolder = process.argv[2] || '../dist/main.min';
 
 const { join, dirname } = require('path')
-const { writeFileSync } = require('fs')
+const { outputFileSync } = require('fs-extra')
 
 const truthTable = require(join(__dirname, 'truthTable.json'))
 
@@ -60,7 +60,7 @@ const resultPath = join(join(dirname(__dirname), 'checks'), ('result_'+makeID()+
 
 const jsonResult = JSON.stringify(checkResult)
 
-writeFileSync(resultPath, jsonResult);
+outputFileSync(resultPath, jsonResult);
 
 const jsonTruthTable = JSON.stringify(truthTable) 
 
