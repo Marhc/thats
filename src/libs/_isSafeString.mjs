@@ -1,1 +1,2 @@
-export default obj => typeof obj == 'string' && obj !== ''
+import _isString from './_isString'
+export default obj => _isString(obj) && obj !== ''

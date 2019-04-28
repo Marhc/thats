@@ -2,20 +2,22 @@
 
 var _getProto = (obj => Object.prototype.toString.call(obj).slice(8, -1));
 
-var _isInteger = (obj => typeof obj == 'number' && obj % 1 === 0);
+var _isNumber = (obj => typeof obj == 'number');
 
-var _isInfinity = (obj => typeof obj == 'number' && Math.abs(obj) == Infinity);
+var _isInteger = (obj => _isNumber(obj) && obj % 1 === 0);
+
+var _isInfinity = (obj => _isNumber(obj) && Math.abs(obj) == Infinity);
 
 var _getType = (obj => {
   let res;
 
   if (_isInteger(obj)) {
     res = 'Integer';
-  } else if (typeof obj == 'number' && !obj) {
+  } else if (_isNumber(obj) && !obj) {
     res = 'NaN';
   } else if (_isInfinity(obj)) {
     res = 'Infinity';
-  } else if (typeof obj == 'number') {
+  } else if (_isNumber(obj)) {
     res = 'Float';
   } else {
     res = _getProto(obj);
@@ -44,17 +46,15 @@ var _isError = (obj => _getProto(obj) == 'Error');
 
 var _isFalse = (obj => !obj);
 
-var _isFloat = (obj => typeof obj == 'number' && !!obj && Math.abs(obj) != Infinity && obj % 1 !== 0);
+var _isFloat = (obj => _isNumber(obj) && !!obj && Math.abs(obj) != Infinity && obj % 1 !== 0);
 
 var _isFunction = (obj => typeof obj == 'function');
 
-var _isSafeString = (obj => typeof obj == 'string' && obj !== '');
+var _isString = (obj => typeof obj == 'string');
 
 var _isJson = (obj => {
-  if (!_isSafeString(obj)) return false;
-
   try {
-    return (res => !!res && typeof res == 'object')(JSON.parse(obj));
+    return _isString(obj) && !!JSON.parse(obj);
   } catch (e) {
     return false;
   }
@@ -62,13 +62,11 @@ var _isJson = (obj => {
 
 var _isMap = (obj => _getProto(obj) == 'Map');
 
-var _isNan = (obj => typeof obj == 'number' && obj !== obj);
+var _isNan = (obj => _isNumber(obj) && obj != obj);
 
 var _isNil = (obj => obj == null);
 
 var _isNull = (obj => obj === null);
-
-var _isNumber = (obj => typeof obj == 'number');
 
 var _isObject = (obj => _getProto(obj) == 'Object');
 
@@ -78,13 +76,13 @@ var _isPromise = (obj => _getProto(obj) == 'Promise');
 
 var _isRegexp = (obj => _getProto(obj) == 'RegExp');
 
-var _isSafeNumber = (obj => typeof obj == 'number' && obj == obj && Math.abs(obj) != Infinity);
+var _isSafeNumber = (obj => _isNumber(obj) && obj == obj && Math.abs(obj) != Infinity);
+
+var _isSafeString = (obj => _isString(obj) && obj !== '');
 
 var _isSet = (obj => _getProto(obj) == 'Set');
 
-var _isString = (obj => typeof obj == 'string');
-
-var _isSymbol = (obj => typeof obj == 'symbol');
+var _isSymbol = (obj => _getProto(obj) == 'Symbol');
 
 var _isUndefined = (obj => obj === undefined);
 

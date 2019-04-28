@@ -1,8 +1,7 @@
-import _isSafeString from './_isSafeString'
+import _isString from './_isString'
 export default obj => {
-	if ( !_isSafeString( obj ) ) return false;
     try {
-        return (res => !!res && typeof res == 'object')(JSON.parse(obj));
+        return _isString(obj) && !!JSON.parse(obj);
     } catch (e) {
         return false;        
     }
