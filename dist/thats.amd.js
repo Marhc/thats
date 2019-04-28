@@ -17,21 +17,17 @@ define(['exports'], function (exports) { 'use strict';
     });
 
     var _getType = (function (obj) {
-      var res;
-
       if (_isInteger(obj)) {
-        res = 'Integer';
+        return 'Integer';
       } else if (_isNumber(obj) && !obj) {
-        res = 'NaN';
+        return 'NaN';
       } else if (_isInfinity(obj)) {
-        res = 'Infinity';
+        return 'Infinity';
       } else if (_isNumber(obj)) {
-        res = 'Float';
+        return 'Float';
       } else {
-        res = _getProto(obj);
+        return _getProto(obj);
       }
-
-      return res;
     });
 
     var _isArray = (function (obj) {

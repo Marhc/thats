@@ -9,21 +9,17 @@ var _isInteger = (obj => _isNumber(obj) && obj % 1 === 0);
 var _isInfinity = (obj => _isNumber(obj) && Math.abs(obj) == Infinity);
 
 var _getType = (obj => {
-  let res;
-
   if (_isInteger(obj)) {
-    res = 'Integer';
+    return 'Integer';
   } else if (_isNumber(obj) && !obj) {
-    res = 'NaN';
+    return 'NaN';
   } else if (_isInfinity(obj)) {
-    res = 'Infinity';
+    return 'Infinity';
   } else if (_isNumber(obj)) {
-    res = 'Float';
+    return 'Float';
   } else {
-    res = _getProto(obj);
+    return _getProto(obj);
   }
-
-  return res;
 });
 
 var _isArray = (obj => _getProto(obj) == 'Array');

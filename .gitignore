@@ -1,7 +1,7 @@
 /src/index.js
 /src/index.mjs
 dev/
-checks/
+/checks/*
 
 # Logs
 logs
