@@ -1,2 +1,1 @@
-import _getProto from './_getProto'
-export default obj => _getProto(obj) == 'Set'
+export default obj => obj instanceof Set

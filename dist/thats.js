@@ -32,7 +32,7 @@ var thats = (function (exports) {
     });
 
     var _isArray = (function (obj) {
-      return _getProto(obj) == 'Array';
+      return obj instanceof Array;
     });
 
     var _isBoolean = (function (obj) {
@@ -40,7 +40,7 @@ var thats = (function (exports) {
     });
 
     var _isDate = (function (obj) {
-      return _getProto(obj) == 'Date';
+      return obj instanceof Date;
     });
 
     var _isDefined = (function (obj) {
@@ -64,7 +64,7 @@ var thats = (function (exports) {
     });
 
     var _isError = (function (obj) {
-      return _getProto(obj) == 'Error';
+      return obj instanceof Error;
     });
 
     var _isFalse = (function (obj) {
@@ -92,7 +92,7 @@ var thats = (function (exports) {
     });
 
     var _isMap = (function (obj) {
-      return _getProto(obj) == 'Map';
+      return obj instanceof Map;
     });
 
     var _isNan = (function (obj) {
@@ -116,11 +116,11 @@ var thats = (function (exports) {
     });
 
     var _isPromise = (function (obj) {
-      return _getProto(obj) == 'Promise';
+      return obj instanceof Promise;
     });
 
     var _isRegexp = (function (obj) {
-      return _getProto(obj) == 'RegExp';
+      return obj instanceof RegExp;
     });
 
     var _isSafeNumber = (function (obj) {
@@ -132,7 +132,7 @@ var thats = (function (exports) {
     });
 
     var _isSet = (function (obj) {
-      return _getProto(obj) == 'Set';
+      return obj instanceof Set;
     });
 
     var _isSymbol = (function (obj) {

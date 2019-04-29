@@ -22,11 +22,11 @@ var _getType = (obj => {
   }
 });
 
-var _isArray = (obj => _getProto(obj) == 'Array');
+var _isArray = (obj => obj instanceof Array);
 
 var _isBoolean = (obj => typeof obj == 'boolean');
 
-var _isDate = (obj => _getProto(obj) == 'Date');
+var _isDate = (obj => obj instanceof Date);
 
 var _isDefined = (obj => !(obj == null));
 
@@ -38,7 +38,7 @@ var _isEmptyObject = (obj => _getProto(obj) == 'Object' && Object.keys(obj).leng
 
 var _isEmptyString = (obj => obj === '');
 
-var _isError = (obj => _getProto(obj) == 'Error');
+var _isError = (obj => obj instanceof Error);
 
 var _isFalse = (obj => !obj);
 
@@ -56,7 +56,7 @@ var _isJson = (obj => {
   }
 });
 
-var _isMap = (obj => _getProto(obj) == 'Map');
+var _isMap = (obj => obj instanceof Map);
 
 var _isNan = (obj => _isNumber(obj) && obj != obj);
 
@@ -68,15 +68,15 @@ var _isObject = (obj => _getProto(obj) == 'Object');
 
 var _isPrimitive = (obj => 'Null Undefined Boolean String Number Symbol'.indexOf(_getProto(obj)) > -1);
 
-var _isPromise = (obj => _getProto(obj) == 'Promise');
+var _isPromise = (obj => obj instanceof Promise);
 
-var _isRegexp = (obj => _getProto(obj) == 'RegExp');
+var _isRegexp = (obj => obj instanceof RegExp);
 
 var _isSafeNumber = (obj => _isNumber(obj) && obj == obj && Math.abs(obj) != Infinity);
 
 var _isSafeString = (obj => _isString(obj) && obj !== '');
 
-var _isSet = (obj => _getProto(obj) == 'Set');
+var _isSet = (obj => obj instanceof Set);
 
 var _isSymbol = (obj => _getProto(obj) == 'Symbol');
 
