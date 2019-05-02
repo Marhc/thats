@@ -1,1 +1,1 @@
-export default obj => obj instanceof Map
+export default obj => obj instanceof Map;

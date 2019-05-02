@@ -1,1 +1,1 @@
-export default obj => obj == ''
+export default obj => obj == '';

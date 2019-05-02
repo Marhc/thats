@@ -1,1 +1,1 @@
-export default obj => obj instanceof Array
+export default obj => obj instanceof Array;

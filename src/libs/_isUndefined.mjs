@@ -1,1 +1,1 @@
-export default obj => obj === undefined
+export default obj => obj === undefined;

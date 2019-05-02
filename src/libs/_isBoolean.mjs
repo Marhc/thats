@@ -1,1 +1,1 @@
-export default obj => typeof obj == 'boolean'
+export default obj => typeof obj == 'boolean';

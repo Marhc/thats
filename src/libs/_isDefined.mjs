@@ -1,1 +1,1 @@
-export default obj => !( obj == null )
+export default obj => !(obj == null);

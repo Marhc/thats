@@ -1,1 +1,1 @@
-export default obj => typeof obj == 'function'
+export default obj => typeof obj == 'function';

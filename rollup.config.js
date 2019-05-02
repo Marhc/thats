@@ -2,14 +2,17 @@ import babel from 'rollup-plugin-babel';
 import commonjs from 'rollup-plugin-commonjs';
 import resolve from 'rollup-plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
+import prettier from 'rollup-plugin-prettier';
 
 export default [
   {
     input: 'src/index.mjs',
     output: {
-        file: 'dist/main.js',
-        format: 'cjs',
-        esModule: false
+      file: 'dist/main.js',
+      format: 'cjs',
+      esModule: false,
+      preferConst: true,
+      strict: false
     },
     inlineDynamicImports: true,
     plugins: [
@@ -29,15 +32,18 @@ export default [
         plugins: [
             "add-module-exports", "@babel/plugin-syntax-dynamic-import"
         ]
-      })
+      }),
+      prettier({"parser": "babel"})
     ]
   },
   {
     input: 'src/index.mjs',
     output: {
-        file: 'dist/main.min.js',
-        format: 'cjs',
-        esModule: false
+      file: 'dist/main.min.js',
+      format: 'cjs',
+      esModule: false,
+      preferConst: true,
+      strict: false
     },
     inlineDynamicImports: true,
     plugins: [
@@ -87,7 +93,8 @@ export default [
         plugins: [
             "add-module-exports", "@babel/plugin-syntax-dynamic-import"
         ]
-      })
+      }),
+      prettier({"parser": "babel"})
     ]
   },
   {
@@ -146,7 +153,8 @@ export default [
         plugins: [
             "add-module-exports", "@babel/plugin-syntax-dynamic-import"
         ]
-      })
+      }),
+      prettier({"parser": "babel"})
     ]
   },
   {
@@ -185,7 +193,8 @@ export default [
       file: 'dist/thats.mjs',
       format: 'esm',
       name: 'thats',
-      esModule: false
+      esModule: false,
+      preferConst: true
     },
     inlineDynamicImports: true,
     plugins: [
@@ -198,14 +207,17 @@ export default [
           [
             '@babel/env',
             {
-              targets: 'cover 95%'
+              targets: {
+                  "esmodules": true
+              }
             }
           ]
         ],
         plugins: [
             "add-module-exports", "@babel/plugin-syntax-dynamic-import"
         ]
-      })
+      }),
+      prettier({"parser": "babel"})
     ]
   },
   {
@@ -214,7 +226,8 @@ export default [
       file: 'dist/thats.min.mjs',
       format: 'esm',
       name: 'thats',
-      esModule: false
+      esModule: false,
+      preferConst: true
     },
     inlineDynamicImports: true,
     plugins: [
@@ -227,7 +240,9 @@ export default [
           [
             '@babel/env',
             {
-              targets: 'cover 95%'
+              targets: {
+                  "esmodules": true
+              }
             }
           ]
         ],

@@ -1,1 +1,1 @@
-export default obj => obj instanceof Date
+export default obj => obj instanceof Date;

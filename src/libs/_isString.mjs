@@ -1,1 +1,1 @@
-export default obj => typeof obj == 'string'
+export default obj => typeof obj == 'string';

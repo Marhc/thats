@@ -1,1 +1,1 @@
-export default obj => obj instanceof RegExp
+export default obj => obj instanceof RegExp;

@@ -1,1 +1,1 @@
-export default obj => obj instanceof Promise
+export default obj => obj instanceof Promise;
