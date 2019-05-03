@@ -13,8 +13,11 @@ define(['exports'], function(exports) {
     return _isNumber(obj) && obj % 1 === 0;
   };
 
+  var INF = 1 / 0,
+    OBJ = 'Object';
+
   var _isInfinity = function(obj) {
-    return _isNumber(obj) && Math.abs(obj) == Infinity;
+    return _isNumber(obj) && Math.abs(obj) == INF;
   };
 
   var _getType = function(obj) {
@@ -56,7 +59,7 @@ define(['exports'], function(exports) {
   };
 
   var _isEmptyObject = function(obj) {
-    return _getProto(obj) == 'Object' && Object.keys(obj).length === 0;
+    return _getProto(obj) == OBJ && Object.keys(obj).length === 0;
   };
 
   var _isEmptyString = function(obj) {
@@ -72,7 +75,7 @@ define(['exports'], function(exports) {
   };
 
   var _isFloat = function(obj) {
-    return _isNumber(obj) && !!obj && Math.abs(obj) != Infinity && obj % 1 !== 0;
+    return _isNumber(obj) && !!obj && Math.abs(obj) != INF && obj % 1 !== 0;
   };
 
   var _isFunction = function(obj) {
@@ -108,7 +111,7 @@ define(['exports'], function(exports) {
   };
 
   var _isObject = function(obj) {
-    return _getProto(obj) == 'Object';
+    return _getProto(obj) == OBJ;
   };
 
   var _isPrimitive = function(obj) {
@@ -124,7 +127,7 @@ define(['exports'], function(exports) {
   };
 
   var _isSafeNumber = function(obj) {
-    return _isNumber(obj) && obj == obj && Math.abs(obj) != Infinity;
+    return _isNumber(obj) && obj == obj && Math.abs(obj) != INF;
   };
 
   var _isSafeString = function(obj) {

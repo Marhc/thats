@@ -4,7 +4,10 @@ const _isNumber = obj => typeof obj == 'number';
 
 const _isInteger = obj => _isNumber(obj) && obj % 1 === 0;
 
-const _isInfinity = obj => _isNumber(obj) && Math.abs(obj) == Infinity;
+const INF = 1 / 0,
+  OBJ = 'Object';
+
+const _isInfinity = obj => _isNumber(obj) && Math.abs(obj) == INF;
 
 const _getType = obj => {
   if (_isInteger(obj)) {
@@ -32,7 +35,7 @@ const _isEmpty = obj => obj == '';
 
 const _isEmptyArray = obj => _getProto(obj) == 'Array' && !obj.length;
 
-const _isEmptyObject = obj => _getProto(obj) == 'Object' && Object.keys(obj).length === 0;
+const _isEmptyObject = obj => _getProto(obj) == OBJ && Object.keys(obj).length === 0;
 
 const _isEmptyString = obj => obj === '';
 
@@ -40,7 +43,7 @@ const _isError = obj => obj instanceof Error;
 
 const _isFalse = obj => !obj;
 
-const _isFloat = obj => _isNumber(obj) && !!obj && Math.abs(obj) != Infinity && obj % 1 !== 0;
+const _isFloat = obj => _isNumber(obj) && !!obj && Math.abs(obj) != INF && obj % 1 !== 0;
 
 const _isFunction = obj => typeof obj == 'function';
 
@@ -62,7 +65,7 @@ const _isNil = obj => obj == null;
 
 const _isNull = obj => obj === null;
 
-const _isObject = obj => _getProto(obj) == 'Object';
+const _isObject = obj => _getProto(obj) == OBJ;
 
 const _isPrimitive = obj => 'Null Undefined Boolean String Number Symbol'.indexOf(_getProto(obj)) > -1;
 
@@ -70,7 +73,7 @@ const _isPromise = obj => obj instanceof Promise;
 
 const _isRegexp = obj => obj instanceof RegExp;
 
-const _isSafeNumber = obj => _isNumber(obj) && obj == obj && Math.abs(obj) != Infinity;
+const _isSafeNumber = obj => _isNumber(obj) && obj == obj && Math.abs(obj) != INF;
 
 const _isSafeString = obj => _isString(obj) && obj !== '';
 
